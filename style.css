@@ -78,6 +78,28 @@ a {
     color: var(--primary-cyan);
 }
 
+.logo-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-subtitle {
+    font-size: 0.55rem;
+    color: var(--text-grey);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-top: -2px;
+    line-height: 1.2;
+}
+
+.hero-brand-identity {
+    font-size: 0.95rem !important;
+    color: #cbd5e1 !important;
+    font-style: italic;
+    margin-bottom: 10px !important;
+    opacity: 0.9;
+}
+
 .nav-links {
     display: flex;
     gap: 30px;
