@@ -68,11 +68,55 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    // Apply observer to service cards
+    // Apply observer to service cards + click to scroll to form
     document.querySelectorAll('.service-card').forEach(card => {
         card.style.opacity = 0;
         card.style.transform = 'translateY(30px)';
         card.style.transition = 'all 0.6s ease-out';
+        card.style.cursor = 'pointer';
         observer.observe(card);
+
+        card.addEventListener('click', () => {
+            const formSection = document.getElementById('contact');
+            if (formSection) {
+                const headerOffset = 70;
+                const elementPosition = formSection.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+            }
+        });
     });
+
+    // Formspree Form Submission with custom redirect
+    const bookServiceForm = document.getElementById('bookServiceForm');
+    if (bookServiceForm) {
+        bookServiceForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(bookServiceForm);
+            const submitBtn = bookServiceForm.querySelector('.submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            fetch(bookServiceForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = 'thankyou.html';
+                } else {
+                    alert('Something went wrong. Please try again.');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Book TV Repair';
+                }
+            })
+            .catch(() => {
+                alert('Network error. Please check your connection.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Book TV Repair';
+            });
+        });
+    }
 });
