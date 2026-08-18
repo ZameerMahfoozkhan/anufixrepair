@@ -194,20 +194,43 @@
 
             <!-- Contact Form -->
             <div class="contact-form-card">
-                <h3>Send Us a Message</h3>
-                <form>
-                    <input type="text" placeholder="Your Full Name" required>
-                    <input type="email" placeholder="Your Email Address" required>
-                    <input type="tel" placeholder="Mobile Number" required>
-                    <select required>
-                        <option value="">Select Subject</option>
-                        <option value="service">Service Request</option>
-                        <option value="complaint">Complaint</option>
-                        <option value="feedback">Feedback</option>
-                        <option value="general">General Inquiry</option>
+                <h3>Request a Call Back</h3>
+                <form id="bookServiceForm" action="https://formspree.io/f/xrpzobjd" method="POST">
+                    <input type="text" name="name" placeholder="Your Full Name" required>
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                    <select name="tv_brand" required>
+                        <option value="">Select TV Brand</option>
+                        <option value="LG">LG</option>
+                        <option value="Samsung">Samsung</option>
+                        <option value="Sony">Sony</option>
+                        <option value="OnePlus">OnePlus</option>
+                        <option value="UV">UV</option>
+                        <option value="Redmi">Redmi</option>
+                        <option value="Mi">Mi</option>
+                        <option value="TCL">TCL</option>
+                        <option value="Other">Other</option>
                     </select>
-                    <textarea placeholder="Your Message" required></textarea>
-                    <button type="submit" class="submit-btn">Send Message</button>
+                    <select name="tv_type" required>
+                        <option value="">Select TV Type</option>
+                        <option value="LED TV">LED TV</option>
+                        <option value="Smart TV">Smart TV</option>
+                        <option value="LCD TV">LCD TV</option>
+                        <option value="OLED TV">OLED TV</option>
+                        <option value="QLED TV">QLED TV</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <select name="repair_issue" required>
+                        <option value="">Select Repair Issue</option>
+                        <option value="TV Not Turning On">TV Not Turning On</option>
+                        <option value="No Display / Black Screen">No Display / Black Screen</option>
+                        <option value="No Sound">No Sound</option>
+                        <option value="Screen / Picture Problem">Screen / Picture Problem</option>
+                        <option value="HDMI / Port Problem">HDMI / Port Problem</option>
+                        <option value="Wi-Fi / Smart TV Problem">Wi-Fi / Smart TV Problem</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input type="text" name="address" placeholder="Your Address" required>
+                    <button type="submit" class="submit-btn">Book TV Repair</button>
                 </form>
             </div>
 
